@@ -5,6 +5,7 @@ import { NavComponent }   from './nav.component';
 @NgModule({
     imports:      [ BrowserModule, FormsModule ],
     declarations: [ NavComponent ],
-    bootstrap:    [ NavComponent ]
+    bootstrap:    [ NavComponent ],
+    exports:[NavComponent]
 })
 export class NavModule { }
