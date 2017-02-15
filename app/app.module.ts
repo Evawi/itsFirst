@@ -5,6 +5,8 @@ import { FormsModule }   from '@angular/forms';
 import { NavModule }     from './modules/navigation/nav.module';
 
 import { AppComponent }  from './app.component';
+
+//todo сделать сервис для параметров роутинга
 @NgModule({
     imports:      [ BrowserModule, FormsModule, NavModule ],
     declarations: [ AppComponent ],
