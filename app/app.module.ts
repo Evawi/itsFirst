@@ -1,6 +1,7 @@
-import { NgModule }      from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule }   from '@angular/forms';
+import { NgModule }             from '@angular/core';
+import { BrowserModule }        from '@angular/platform-browser';
+import { FormsModule }          from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
 
 import { NavModule }     from './modules/navigation/nav.module';
 
