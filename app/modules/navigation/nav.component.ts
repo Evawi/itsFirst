@@ -1,11 +1,27 @@
 import { Component } from '@angular/core';
+import { RoutingService }       from '../../routing.service';
 
 @Component({
     selector: 'my-navigator',
-    template: `<label>NAV:</label>
-                 <input [(ngModel)]="name" placeholder="name">
-                 <h1>Добро пожаловать {{name}}!</h1>`
+    template: `<div>
+    <!--<a *ngFor="let item of items" href="{{item.href}}">{{item.name}}</a>-->
+    <a routerLink="/">Home</a>
+    <a routerLink="/chart">ChartD3 Test</a>
+    </div>`,
+    providers:    [ RoutingService ]
 })
-export class NavComponent {
+export class NavComponent implements OnInit{
     name= '';
+    items:[];
+    constructor(routingService: RoutingService) {
+        //console.log("routingServicegetStorage",routingService.getStorage())
+        //this.items = this.routingService.getStorage()
+
+    }
+
+    ngOnInit(){
+      // console.log("ngOnInit routingService",routingService)
+        /*console.log("routingService",this.routingService)
+        this.items = this.routingService.getStorage();*/
+    }
 }
