@@ -7,6 +7,7 @@ import { RoutingService }       from '../../routing.service';
     <!--<a *ngFor="let item of items" href="{{item.href}}">{{item.name}}</a>-->
     <a routerLink="/">Home</a>
     <a routerLink="/chart">ChartD3 Test</a>
+    <a routerLink="/chartCanvas">ChartCanvas Test</a>
     </div>`,
     providers:    [ RoutingService ]
 })

@@ -7,15 +7,18 @@ import { RoutingService }       from './routing.service';
 
 import { NavModule }       from './modules/navigation/nav.module';
 import {ChartModule}       from './modules/chartD3/chart.module';
+import {ChartCanvasModule} from './modules/canvas/chart.module';
 
 import { AppComponent }    from './app.component';
 import { HomeComponent }   from './home-cmp/home.component';
 import { ChartComponent }  from './test-chart-cmp/chart.component';
+import { ChartCanvasComponent }  from './test-chart-cmp/chart-cavas.component';
 
 
 const appRoutes: Routes = [
     { path: '',      component: HomeComponent, href:"/" ,name:"Home"},
-    { path: 'chart', component: ChartComponent, href:"/chart",name:"Chart" },
+    { path: 'chart',       component: ChartComponent, href:"/chart",name:"Chart" },
+    { path: 'chartCanvas', component: ChartCanvasComponent, href:"/chart",name:"ChartCanvas" },
     { path: '**',    component: HomeComponent, href:"/" ,name:"Home" },
 ];
 
@@ -27,12 +30,14 @@ const appRoutes: Routes = [
         FormsModule
         ,RouterModule.forRoot(appRoutes)
         , NavModule,
-        ChartModule
+        ChartModule,
+        ChartCanvasModule
         ],
     declarations: [
         AppComponent,
         HomeComponent,
-        ChartComponent
+        ChartComponent,
+        ChartCanvasComponent
     ],
     bootstrap:    [ AppComponent ],
     providers:    [ RoutingService ]
