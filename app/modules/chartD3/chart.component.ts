@@ -37,13 +37,13 @@ export class ChartComponent{
     d3Chart(data, param){
 
 
-        var data = [
+        /*var data = [
             {"x": "payday loans", "count_uid": 1400000, "local": 673000, "cpc": "14.11"},
             {"x": "title loans", "count_uid": 165000, "local": 160000, "cpc": "12.53" },
             {"x": "personal loans", "count_uid": 550000, "local": 301000, "cpc": "6.14"},
             {"x": "online personal loans", "count_uid": 15400, "local": 12900, "cpc": "5.84"},
             {"x": "online title loans", "count_uid": 111600, "local": 11500, "cpc": "11.74"}
-        ];
+        ];*/
 
         var xArr = data.map(function (d) {return d.x; });
         console.log(xArr.length)
@@ -63,8 +63,8 @@ export class ChartComponent{
 
         //шкалы рисуем длину  и высоту
        // var xScale = d3.scaleLinear().range([0, width]);
-        var xScale = d3.scaleBand().rangeRound([margin.left, width], 0.05);
-        var yScale = d3.scaleLinear().range([height, 0]);
+        var xScale = d3.scaleBand().rangeRound([0, width], 0.05);
+        var yScale = d3.scaleBand().rangeRound([margin.left, height], 0.05);
         //var xScale = d3.time.scale().range([0, width]);
 
         //связываем шкалы с данными
@@ -101,11 +101,19 @@ export class ChartComponent{
 */
         // create group in svg for generate graph
         var xAxis = d3.axisBottom(xScale).tickValues(xArr);
+        var yAxis = d3.axisLeft(yScale);
 
-        var g = svg.append("g").attr("transform", "translate(0,0)");
+        var g = svg.append("g").attr("transform", "translate("+ margin.left +",0)");
 
-        g.append("g").attr("transform", "translate(0,30)")
+        g.append("g") .attr("transform", "translate(0," + height + ")")
             .call(xAxis);/**/
+        g.append("g") .call(yAxis)
+            .append("text")
+            .attr("fill", "#000")
+            .attr("transform", "rotate(-90)")
+            .attr("y", 6)
+            .attr("dy", "0.71em")
+            .attr("text-anchor", "end");
 
        // var g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
@@ -142,6 +150,15 @@ export class ChartComponent{
         var line = d3.line()
             .x(function(d) { return xScale(d.x); })
             .y(function(d) { return yScale(d.count_uid); });
+
+        g.append("path")
+            .datum(data)
+            .attr("fill", "none")
+            .attr("stroke", "steelblue")
+            .attr("stroke-linejoin", "round")
+            .attr("stroke-linecap", "round")
+            .attr("stroke-width", 1.5)
+            .attr("d", line);
 
 
          var x = [];

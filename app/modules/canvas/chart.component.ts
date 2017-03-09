@@ -24,8 +24,7 @@ export class ChartCanvasComponent{
     }
     canvasRendar(params){
 
-        var data =  params.data.data.map(function (d) {  d.y =+d.count_uid; if (d.y>2000){console.log("console log",d.x)};if (d.x>9499999999999999){console.log("console logy",d.y)}; return d  });
-        console.log()
+        var data =  params.data.data.map(function (d) {  d.y =+d.count_uid; return d  });
         var chart = new CanvasJS.Chart("chartContainer", {
             theme: "theme2",//theme1
             title:{

@@ -8,6 +8,7 @@ import { RoutingService }       from '../../routing.service';
     <a routerLink="/">Home</a>
     <a routerLink="/chart">ChartD3 Test</a>
     <a routerLink="/chartCanvas">ChartCanvas Test</a>
+    <a routerLink="/chartAmcharts">ChartAmcarts Test</a>
     </div>`,
     providers:    [ RoutingService ]
 })
